@@ -53,7 +53,7 @@ namespace MVCTest.Controllers
         // GET: Authors/Create
         public ActionResult Create()
         {
-            return View();
+            return View("Form", new Author());
         }
 
         // POST: Authors/Create
@@ -61,7 +61,7 @@ namespace MVCTest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Biography")] Author author)
+        public ActionResult Create([Bind(Include = "id,firstName,lastName,biography")] Author author)
         {
             if (ModelState.IsValid)
             {
@@ -70,7 +70,7 @@ namespace MVCTest.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(author);
+            return View("Form", author);
         }
 
         // GET: Authors/Edit/5
@@ -85,7 +85,7 @@ namespace MVCTest.Controllers
             {
                 return HttpNotFound();
             }
-            return View(author);
+            return View("Form", author);
         }
 
         // POST: Authors/Edit/5
@@ -93,7 +93,7 @@ namespace MVCTest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Biography")] Author author)
+        public ActionResult Edit([Bind(Include = "id,firstName,lastName,biography")] Author author)
         {
             if (ModelState.IsValid)
             {
@@ -101,7 +101,7 @@ namespace MVCTest.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(author);
+            return View("Form", author);
         }
 
         // GET: Authors/Delete/5

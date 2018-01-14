@@ -16,23 +16,21 @@
     <thead>
         <tr>
             <th>
-                @Html.BuildSortableLink("First Name", "Index", "FirstName"
-                         , queryOptions)
+                @Html.BuildSortableLink("First Name", "Index", "firstName", queryOptions)
         </th>
         <th>
-            @Html.BuildSortableLink("Last Name", "Index", "LastName"
-                     , queryOptions)
+            @Html.BuildSortableLink("Last Name", "Index", "lastName", queryOptions)
     </th>
 </tr>
 </thead>
 <tbody data-bind="foreach: authors">
     <tr>
-        <td data-bind="text: FirstName"></td>
-        <td data-bind="text: LastName"></td>
+        <td data-bind="text: firstName"></td>
+        <td data-bind="text: lastName"></td>
         <td>
-            <a data-bind="attr: {href: '@Url.Action("Details")/' + Id}" class="btn btn-info">Details</a>
-            <a data-bind="attr: {href: '@Url.Action("Edit")/' + Id}" class="btn btn-primary">Edit</a>
-            <a data-bind="attr: {href: '@Url.Action("Delete")/' + Id}" class="btn btn-danger">Delete</a>
+            <a data-bind="attr: {href: '@Url.Action("Details")/' + id}" class="btn btn-info">Details</a>
+            <a data-bind="attr: {href: '@Url.Action("Edit")/' + id}" class="btn btn-primary">Edit</a>
+            <a data-bind="click: $parent.showDeleteModal, attr: { href: '@Url.Action("Delete")/' + id }" class="btn btn-danger">Delete</a>
         </td>
     </tr>
 </tbody>
@@ -44,12 +42,7 @@
 @section scripts
 {
     <script>
-        function ViewModel(authors) {
-            var self = this;
-            self.authors = authors;
-        };
-
-        var viewModel = new ViewModel(@Html.HtmlConvertToJson(Model));
+        var viewModel = new AuthorIndexViewModel(@Html.HtmlConvertToJson(Model));
         ko.applyBindings(viewModel);
     </script>
 }

@@ -36,7 +36,6 @@ F:\Projects\MVCTest\MVCTest\bin\Microsoft.AI.DependencyCollector.xml
 F:\Projects\MVCTest\MVCTest\bin\Microsoft.AI.ServerTelemetryChannel.xml
 F:\Projects\MVCTest\MVCTest\bin\Microsoft.AI.WindowsServer.xml
 F:\Projects\MVCTest\MVCTest\bin\Microsoft.AI.Web.xml
-F:\Projects\MVCTest\MVCTest\obj\Debug\MVCTest.csprojResolveAssemblyReference.cache
 F:\Projects\MVCTest\MVCTest\obj\Debug\MVCTest.csproj.CoreCompileInputs.cache
 F:\Projects\MVCTest\MVCTest\obj\Debug\MVCTest.dll
 F:\Projects\MVCTest\MVCTest\obj\Debug\MVCTest.pdb
