@@ -1,8 +1,10 @@
 ﻿@using MVCTest.Extensions
+@using MVCTest.Models
 @model IEnumerable<MVCTest.Models.Author>
 
 @{
     ViewBag.Title = "Index";
+    var queryOptions = (QueryOptions)ViewBag.QueryOptions;
 }
 
 <h2>Authors</h2>
@@ -12,12 +14,18 @@
 </p>
 <table class="table table-bordered table-striped">
     <thead>
-    <tr>
-        <th>@Html.DisplayNameFor(model => model.FirstName)</th>
-        <th>@Html.DisplayNameFor(model => model.LastName)</th>
-    </tr>
-    </thead>
-    <tbody data-bind="foreach: authors">
+        <tr>
+            <th>
+                @Html.BuildSortableLink("First Name", "Index", "FirstName"
+                         , queryOptions)
+        </th>
+        <th>
+            @Html.BuildSortableLink("Last Name", "Index", "LastName"
+                     , queryOptions)
+    </th>
+</tr>
+</thead>
+<tbody data-bind="foreach: authors">
     <tr>
         <td data-bind="text: FirstName"></td>
         <td data-bind="text: LastName"></td>
@@ -27,10 +35,11 @@
             <a data-bind="attr: {href: '@Url.Action("Delete")/' + Id}" class="btn btn-danger">Delete</a>
         </td>
     </tr>
-    </tbody>
+</tbody>
 
 
 </table>
+@Html.BuildNextPreviousLinks(queryOptions, "Index")
 
 @section scripts
 {

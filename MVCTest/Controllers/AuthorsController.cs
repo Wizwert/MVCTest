@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Dynamic;
 using System.Net;
 using System.Web;
+using System.Web.ModelBinding;
 using System.Web.Mvc;
 using MVCTest.DAL;
 using MVCTest.Models;
@@ -16,9 +18,21 @@ namespace MVCTest.Controllers
         private BookContext db = new BookContext();
 
         // GET: Authors
-        public ActionResult Index()
+        public ActionResult Index([Form] QueryOptions queryOptions)
         {
-            return View(db.Authors.ToList());
+            var start = (queryOptions.CurrentPage - 1) * queryOptions.PageSize;
+
+            var authors = db.Authors.
+                OrderBy(queryOptions.Sort).
+                Skip(start).
+                Take(queryOptions.PageSize);
+
+            queryOptions.TotalPages =
+                (int)Math.Ceiling((double)db.Authors.Count() / queryOptions.PageSize);
+
+            ViewBag.QueryOptions = queryOptions;
+
+            return View(authors.ToList());
         }
 
         // GET: Authors/Details/5
