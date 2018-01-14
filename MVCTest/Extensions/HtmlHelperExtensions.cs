@@ -1,6 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 using MVCTest.Models;
+using MVCTest.ViewModel;
 using Newtonsoft.Json;
 
 namespace MVCTest.Extensions

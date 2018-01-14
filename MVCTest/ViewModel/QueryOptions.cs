@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-
-namespace MVCTest.Models
+﻿namespace MVCTest.ViewModel
 {
     public class QueryOptions
     {

@@ -44,3 +44,6 @@ F:\Projects\MVCTest\MVCTest\bin\EntityFramework.SqlServer.dll
 F:\Projects\MVCTest\MVCTest\bin\EntityFramework.xml
 F:\Projects\MVCTest\MVCTest\bin\EntityFramework.SqlServer.xml
 F:\Projects\MVCTest\MVCTest\bin\System.Linq.Dynamic.dll
+F:\Projects\MVCTest\MVCTest\obj\Debug\MVCTest.csprojResolveAssemblyReference.cache
+F:\Projects\MVCTest\MVCTest\bin\AutoMapper.dll
+F:\Projects\MVCTest\MVCTest\bin\AutoMapper.xml
